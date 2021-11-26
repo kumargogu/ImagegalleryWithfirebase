@@ -1,0 +1,48 @@
+<div class="card" style="width: 18rem;">
+    <img [src]="imgSrc" class="card-img-top" alt="..." (click)="fileuploader.click()">
+    <div class="card-body">
+        <form [formGroup]="formImg" (submit)="onSubmit(formImg.value)">
+            <div class="form-group">
+                <label>Upload img</label>
+                <input type="file" accept="image/png,image/jpg" class="form-control" #fileuploader
+                    formControlName="imgUrl" (change)="showPreview($event)"><!-- accept="image/*"   for all formats-->
+                <div class="alert alert-danger" *ngIf="imgUrl.touched && imgUrl.invalid">
+                    * Image upload is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Caption" formControlName="caption">
+                <div class="alert alert-danger" *ngIf="caption.touched && caption.invalid">
+                    <!--  *ngIf="isSubmited && formControls.caption.errors?.[required]"-->
+                    * Caption is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <select formControlName="category" class="form-control">
+                    <option value="" disabled>--Select Category--</option>
+                    <option>Birds</option>
+                    <option>Flowers</option>
+                    <option>Nature</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+                    * Category is mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <input type="submit" [disabled]="formImg.invalid" class="btn btn-success" value="Upload">
+                    </div>
+                    <div class="col-sm-7">
+                        <button class="btn btn-secondary" [routerLink]="['/images/imglist']"> Gallery
+                            Display
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+</div>

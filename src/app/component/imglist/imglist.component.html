@@ -1,0 +1,26 @@
+<table *ngIf="imgList">
+    <tr *ngFor="let x of rowIndexArray">
+        <td>
+            <div class="imagebox">
+                <img [src]="imgList[3*x].imgUrl" class="img-fluid">
+                <span class="imagebox-desc">{{imgList[3*x].caption}}</span>
+                <!--   <span class="imagebox-desc">{{imgList[3*x].category}}</span> -->
+            </div>
+        </td>
+        <td>
+            <div class="imagebox">
+                <img [src]="imgList[3*x+1].imgUrl" class="img-fluid">
+                <span class="imagebox-desc">{{imgList[3*x+1].caption}}</span>
+                <!--   <span class="imagebox-desc">{{imgList[3*x].category}}</span> -->
+            </div>
+        </td>
+        <td>
+            <div class="imagebox">
+                <img [src]="imgList[3*x+2].imgUrl" class="img-fluid">
+                <span class="imagebox-desc">{{imgList[3*x+2].caption}}</span>
+                <!--   <span class="imagebox-desc">{{imgList[3*x].category}}</span> -->
+            </div>
+        </td>
+    </tr>
+
+</table>
