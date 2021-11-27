@@ -3,7 +3,7 @@
     <div class="card-body">
         <form [formGroup]="formImg" (submit)="onSubmit(formImg.value)">
             <div class="form-group">
-                <label>Upload img</label>
+                <label>Upload Image</label>
                 <input type="file" accept="image/png,image/jpg" class="form-control" #fileuploader
                     formControlName="imgUrl" (change)="showPreview($event)"><!-- accept="image/*"   for all formats-->
                 <div class="alert alert-danger" *ngIf="imgUrl.touched && imgUrl.invalid">
